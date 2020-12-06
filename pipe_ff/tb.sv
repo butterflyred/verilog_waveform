@@ -10,14 +10,11 @@ $fsdbDumpvars("+struct","+mda",dut);
 clk = 0;
 rst = 1;
 ina=3;
-inb=2;
 @(posedge clk)
 rst = 0;
 ina = 1;
-inb = 3;
 @(posedge clk)
 ina = 2;
-inb = 1;
 
 #50 $finish;
 end
@@ -28,7 +25,6 @@ test dut(
 .clk,
 .rst,
 .ina,
-.inb,
 .out
 );
 

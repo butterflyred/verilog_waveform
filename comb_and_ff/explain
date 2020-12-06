@@ -1,0 +1,2 @@
+comb vs assign  
+comb FF 可拿到 快一個 cycle 的 value (只有第一個FF)

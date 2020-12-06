@@ -2,34 +2,35 @@
 module tb();
 
 reg clk,rst;
-reg [2:0] ina,inb;
-wire [4:0] out;
+reg w;
+wire z;
 initial begin
 $fsdbDumpfile("top.fsdb");
 $fsdbDumpvars("+struct","+mda",dut);
 clk = 0;
-rst = 1;
-ina=3;
-inb=2;
-@(posedge clk)
 rst = 0;
-ina = 1;
-inb = 3;
-@(posedge clk)
-ina = 2;
-inb = 1;
+w=0;
 
-#50 $finish;
+@(posedge clk)
+rst = 1;
+@(posedge clk)
+w=1;
+@(posedge clk)
+@(posedge clk)
+@(posedge clk)
+w=0;
+
+#6
+$finish;
 end
 
-always #2 clk <= ~clk;
+always #1 clk <= ~clk;
 
 test dut(
 .clk,
 .rst,
-.ina,
-.inb,
-.out
+.w,
+.z
 );
 
 endmodule

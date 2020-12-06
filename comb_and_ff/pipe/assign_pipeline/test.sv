@@ -6,9 +6,9 @@ module test(
 	wire [5:0] mult_out,adder_out,a_mc;
 	reg [5:0] sum,d_c,m_c,m_out;
 	
-	assign mult_out 	= sum	*	d_c;
 	assign adder_out 	= ina 	+ 	inb;
-	assign a_mc 	= m_out + 	m_c;
+	assign mult_out 	= sum	*	d_c;
+	assign a_mc 		= m_out + 	m_c;
 	
 	always @(posedge clk,posedge rst)
 	begin

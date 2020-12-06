@@ -13,7 +13,7 @@ module test(
 	} cs,ns;
 
 	// output logic
-	always @(*) begin
+	always_comb begin
 		case (cs)
 			A : begin
 				z = 0;
@@ -47,11 +47,11 @@ module test(
 	end
 	// ff
 	always @(posedge clk, negedge rst) begin
-		if ( !rst ) cs <= 0;
+		if ( !rst ) cs <= 3;
 		else cs <= ns;
 	end
 	// ns
-	always @(*) begin
+	always_comb begin
 		case (cs)
 			A : begin
 				if ( w == 0 ) begin
@@ -105,6 +105,5 @@ module test(
 				ns = A;
 			end
 		endcase
-		
 	end
 endmodule
